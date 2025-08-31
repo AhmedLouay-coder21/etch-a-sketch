@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;     /* vertically center */
+    height: 100vh;           /* full page height */
+    margin: 0;
+}
+#grid
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 700px;
+    margin: auto;
+    margin-top: 50px;
+}
