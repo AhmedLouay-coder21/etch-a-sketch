@@ -1,6 +1,5 @@
 const grid = document.getElementById("grid");
-
-// changeSquaresColor makes width * height boxes that changes their color from white to purple if you hoover over it.
+// changeSquareColor makes width * height boxes that changes their color from white to purple if you hoover over it.
 function changeSquareColor()
 {
     let box;
@@ -25,4 +24,4 @@ function changeSquareColor()
         grid.appendChild(box);
     }
 }
-changeSquaresColor();
+changeSquareColor();
