@@ -23,3 +23,20 @@ body {
 #grid > div {
     box-sizing: border-box;
 }
+#container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button
+{
+    height: 50px;
+    width: 150px;
+    margin-top: 50px;
+    margin-right: 320px;
+    color: white;
+    background-color: #3882f6;
+    border: none;
+    border-radius: 10px;
+}

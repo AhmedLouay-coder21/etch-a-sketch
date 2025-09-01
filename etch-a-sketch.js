@@ -1,4 +1,15 @@
 const grid = document.getElementById("grid");
+const clear = document.querySelector("button");
+
+//when the user clicks clear reset all the boxes color to white.
+clear.addEventListener("click", resetGrid => 
+    {
+        const boxes = grid.querySelectorAll("div");
+        boxes.forEach(box => {
+        box.style.backgroundColor = "white";
+    });
+    }
+);
 // changeSquareColor makes width * height boxes that changes their color from white to purple if you hoover over it.
 function changeSquareColor()
 {
