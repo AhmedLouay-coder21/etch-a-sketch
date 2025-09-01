@@ -1,17 +1,25 @@
 body {
     display: flex;
-    justify-content: center; /* horizontally center */
-    align-items: center;     /* vertically center */
-    height: 100vh;           /* full page height */
-    margin: 0;
-}
-#grid
-{
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    width: 700px;
-    margin: auto;
-    margin-top: 50px;
+    height: 100vh;
+    margin: 0;
+    background-image: url('bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;        
+    height: 80vh; 
+    margin-top: 60px; 
+    margin-right: 320px;
+    border: 10px solid red;
+    box-sizing: border-box;
+}
+#grid > div {
+    box-sizing: border-box;
 }
