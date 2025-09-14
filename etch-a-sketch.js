@@ -14,12 +14,23 @@ clear.addEventListener("click", resetGrid =>
 function changeSquareColor()
 {
     let box;
-    let width = 16;
-    let height = 16;
+    let height;
+    let width;
+    const submitButton = document.getElementById("submit");
+    submitButton.addEventListener("click", (event) => 
+    {
+        event.preventDefault();
+        let drawing = false;
+        grid.innerHTML = "";
 
-    grid.style.justifyContent = "flex-start";
-    grid.style.alignItems = "flex-start";
-// makes a hooverable box with each iteration with initial white color that doesn't exceed the grid limits.
+        const gridSize = document.getElementById("gridSize").value;
+        width = gridSize;
+        height = gridSize;
+
+        grid.style.justifyContent = "flex-start";
+        grid.style.alignItems = "flex-start";
+
+    // makes a box with each iteration with initial white color that doesn't exceed the grid limits.
     for(let i = 0; i < height * width; i++)
     {
         box = document.createElement("div");
@@ -28,11 +39,19 @@ function changeSquareColor()
         box.style.height = `calc(100% / ${height})`; 
 
         box.style.backgroundColor = "white";
-        //if hoover change color from white to purple
-        box.addEventListener("mouseenter", (event) => {
-            event.target.style.backgroundColor = "purple";
+        // double click toggles drawing mode
+        box.addEventListener("dblclick", () => {
+            drawing = !drawing;
+        });
+
+        // paint on drag if drawing mode is on
+        box.addEventListener("mouseover", (event) => {
+            if (drawing && event.buttons === 1) {
+                event.target.style.backgroundColor = "purple";
+            }
         });
         grid.appendChild(box);
     }
+    });
 }
 changeSquareColor();
