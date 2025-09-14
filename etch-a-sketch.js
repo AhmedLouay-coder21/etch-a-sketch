@@ -21,6 +21,8 @@ function changeSquareColor()
     {
         event.preventDefault();
         let drawing = false;
+        grid.addEventListener("dragstart", (e) => e.preventDefault());
+        document.addEventListener("mouseup", () => { drawing = false; });
         grid.innerHTML = "";
 
         const gridSize = document.getElementById("gridSize").value;
@@ -41,13 +43,22 @@ function changeSquareColor()
         box.style.backgroundColor = "white";
         // double click toggles drawing mode
         box.addEventListener("dblclick", () => {
-            drawing = !drawing;
+            drawing = true;
         });
 
         // paint on drag if drawing mode is on
-        box.addEventListener("mouseover", (event) => {
-            if (drawing && event.buttons === 1) {
-                event.target.style.backgroundColor = "purple";
+        box.addEventListener("mousedown", (e) => {
+            if (e.button === 0 && e.detail === 2) {
+                drawing = true;
+                e.target.style.backgroundColor = "purple"; // Draw on the starting square
+                e.preventDefault();
+            }
+        });
+
+        // Draw on mouseover if drawing
+        box.addEventListener("mouseover", (e) => {
+            if (drawing) {
+                e.target.style.backgroundColor = "purple";
             }
         });
         grid.appendChild(box);
